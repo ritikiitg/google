@@ -1,0 +1,307 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: var(--space-10);
+    animation: fadeIn 0.5s ease;
+}
+
+.welcome h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome h1 .emoji {
+    -webkit-text-fill-color: initial;
+    background: none;
+}
+
+.welcome p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+/* Input Section by ritik raj*/
+.inputSection {
+    margin-bottom: var(--space-10);
+    animation: fadeIn 0.5s ease 0.1s backwards;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.inputWrapper {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    backdrop-filter: blur(12px);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.inputWrapper:focus-within {
+    box-shadow:
+        var(--shadow-lg),
+        0 0 0 2px var(--color-accent-primary);
+}
+
+.decisionInput {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    resize: none;
+    min-height: 100px;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    width: 100%;
+}
+
+.decisionInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.decisionInput::placeholder {
+    color: var(--color-text-muted);
+}
+
+.inputFooter {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.categorySelect {
+    max-width: 180px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8125rem;
+    background: var(--color-bg-tertiary);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+}
+
+.categorySelect:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent-primary);
+}
+
+.error {
+    padding: var(--space-4);
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: var(--radius-lg);
+    color: #ef4444;
+    font-size: 0.875rem;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: var(--space-2);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tips Section by ritik raj*/
+.tipsSection {
+    animation: fadeIn 0.5s ease 0.2s backwards;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top center;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.tipsSectionHidden {
+    animation: slideDownOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideDownOut {
+    0% {
+        opacity: 1;
+        max-height: 500px;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(20px);
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.tipsSection h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-5);
+}
+
+.tipsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.tip {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+}
+
+.tip:hover {
+    background: var(--color-bg-tertiary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.tipIcon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.tip p {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* Thinking Indicator by ritik raj*/
+.thinkingIndicator {
+    margin-top: var(--space-5);
+    padding: var(--space-5) var(--space-6);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border-radius: var(--radius-xl);
+    animation: fadeIn 0.3s ease;
+}
+
+.thinkingHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.thinkingDots {
+    display: flex;
+    gap: 4px;
+}
+
+.thinkingDots span {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent-primary);
+    border-radius: 50%;
+    animation: thinkingBounce 1.4s ease-in-out infinite;
+}
+
+.thinkingDots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.thinkingDots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thinkingDots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes thinkingBounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.thinkingTime {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.thinkingMessage {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    animation: fadeMessage 2.5s ease-in-out infinite;
+    min-height: 1.5em;
+}
+
+@keyframes fadeMessage {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .tipsList {
+        grid-template-columns: 1fr;
+    }
+
+    .inputFooter {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .categorySelect {
+        max-width: 100%;
+        width: 100%;
+    }
+}

@@ -1,0 +1,256 @@
+.card {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    animation: fadeInCard 0.5s ease backwards;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card.selected {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+.header {
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-2);
+}
+
+.title {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+}
+
+.probability {
+    background: var(--accent-color);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.summary {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+/* Metrics */
+.metrics {
+    display: grid;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+}
+
+.metric {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.metricHeader {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.metricName {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    text-transform: capitalize;
+}
+
+.metricTrend {
+    font-size: 0.75rem;
+}
+
+.trendUp {
+    color: var(--color-positive);
+}
+
+.trendDown {
+    color: var(--color-negative);
+}
+
+.trendStable {
+    color: var(--color-text-muted);
+}
+
+.metricBar {
+    grid-column: 1 / 2;
+    height: 6px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.metricFill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease;
+}
+
+.metricScore {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    min-width: 24px;
+    text-align: right;
+}
+
+/* Events */
+.events {
+    margin-bottom: var(--space-5);
+}
+
+.events h4,
+.tradeoffs h4,
+.effects h4 {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+}
+
+.eventsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    position: relative;
+    padding-left: var(--space-6);
+}
+
+.eventsList::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--color-border);
+}
+
+.event {
+    display: flex;
+    gap: var(--space-3);
+    position: relative;
+}
+
+.eventMarker {
+    position: absolute;
+    left: calc(-1 * var(--space-6) + 1px);
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-bg-card);
+    z-index: 1;
+}
+
+.eventMarker.positive {
+    background: var(--color-positive);
+}
+
+.eventMarker.negative {
+    background: var(--color-negative);
+}
+
+.eventMarker.neutral {
+    background: var(--color-neutral);
+}
+
+.eventPeriod {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-accent-primary);
+}
+
+.eventDescription {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+}
+
+/* Trade-offs & Effects by ritik raj*/
+.tradeoffs,
+.effects {
+    margin-bottom: var(--space-4);
+}
+
+.tradeoffs ul,
+.effects ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.tradeoffs li,
+.effects li {
+    font-size: 0.875rem;
+    padding-left: var(--space-4);
+    position: relative;
+    color: var(--color-text-secondary);
+}
+
+.tradeoffs li::before {
+    content: '⚖️';
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+}
+
+.effects li::before {
+    content: '🔗';
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+}
+
+/* Selection Indicator by ritik raj*/
+.selectIndicator {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-4);
+}
+
+.card.selected .selectIndicator {
+    color: var(--accent-color);
+    font-weight: 500;
+}

@@ -1,0 +1,110 @@
+// Prisma Schema for Usaid
+// Future Timeline Simulation Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  passwordHash String
+  name         String?
+  
+  // Password Reset
+  resetToken       String?   @unique
+  resetTokenExpiry DateTime?
+  
+  // User Profile for AI modeling
+  riskTolerance String    @default("medium") // low, medium, high
+  priorities    String    @default("[]") // JSON array of priority areas
+  currentSituation String? // Context about their life situation
+  
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  
+  decisions    Decision[]
+  feedback     Feedback[]
+
+  // @@index already covered by @unique on email
+}
+
+model Decision {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  content   String     // The decision in natural language
+  category  String?    // career, relationships, finance, health, etc.
+  context   String?    // JSON with additional context
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  timelines Timeline[]
+  feedback  Feedback[]
+  
+  // For decision injection/branching
+  parentDecisionId String?
+  parentDecision   Decision?  @relation("DecisionBranches", fields: [parentDecisionId], references: [id])
+  childDecisions   Decision[] @relation("DecisionBranches")
+
+  // Performance: Index for user's decisions sorted by date
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model Timeline {
+  id          String   @id @default(cuid())
+  decisionId  String
+  decision    Decision @relation(fields: [decisionId], references: [id], onDelete: Cascade)
+  
+  title       String   // e.g., "The Bold Leap", "Safe Harbor"
+  summary     String   // 2-3 sentence overview
+  probability Int      // 0-100, likelihood of this outcome
+  
+  // Metrics as JSON (score + trend for each)
+  metrics     String   // JSON: { emotional, financial, career, relationships, risk }
+  
+  // Analysis
+  tradeoffs          String // JSON array of tradeoff strings
+  secondOrderEffects String // JSON array of second-order effects
+  
+  createdAt   DateTime @default(now())
+  
+  events      TimelineEvent[]
+
+  // Performance: Index for decision's timelines
+  @@index([decisionId])
+}
+
+model TimelineEvent {
+  id          String   @id @default(cuid())
+  timelineId  String
+  timeline    Timeline @relation(fields: [timelineId], references: [id], onDelete: Cascade)
+  
+  order       Int      // Sequence in the timeline
+  period      String   // "3 months", "1 year", "5 years"
+  description String   // What happens
+  impact      String   // positive, neutral, negative
+  
+  createdAt   DateTime @default(now())
+}
+
+model Feedback {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  decisionId String
+  decision   Decision @relation(fields: [decisionId], references: [id], onDelete: Cascade)
+  
+  outcome    String   // What actually happened
+  accuracy   Int?     // How accurate was the AI prediction (1-5)
+  notes      String?  // Additional user notes
+  
+  createdAt  DateTime @default(now())
+}

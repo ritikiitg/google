@@ -1,0 +1,580 @@
+/* Auth Page - Premium Design by ritik raj */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background: var(--color-bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+/* Theme Toggle - Absolute Position */
+.themeToggle {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    background: var(--color-bg-secondary);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.themeToggle:hover {
+    color: var(--color-accent-primary);
+    transform: scale(1.05);
+}
+
+/* Main Card */
+.card {
+    max-width: 1100px;
+    width: 100%;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+    }
+}
+
+/* Left Panel - Visual */
+.leftPanel {
+    flex: 1;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+    padding: var(--space-12);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Circles */
+.decorCircle1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 256px;
+    height: 256px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(60px);
+}
+
+.decorCircle2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    height: 320px;
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 50%;
+    transform: translate(33%, 33%);
+    filter: blur(60px);
+}
+
+.decorCircle3 {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.leftContent {
+    position: relative;
+    z-index: 1;
+}
+
+/* Brand Header */
+.brandHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 20%;
+}
+
+.brandLogo {
+    width: 200px;
+    height: 120px;
+    min-width: 100px;
+    min-height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brandName {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.welcomeTitle {
+    font-size:  1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-6);
+}
+
+.welcomeSubtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 380px;
+}
+
+/* Trust Badge by ritik raj*/
+.trustBadge {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--space-12);
+}
+
+.badgeIcon {
+    color: #86efac;
+}
+
+.badgeContent {
+    flex: 1;
+}
+
+.badgeTitle {
+    font-weight: 700;
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.badgeText {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    margin-top: 2px;
+}
+
+/* Right Panel - Form */
+.rightPanel {
+    flex: 1;
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-bg-secondary);
+}
+
+@media (min-width: 768px) {
+    .rightPanel {
+        padding: var(--space-12);
+    }
+}
+
+.formWrapper {
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.formTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    margin-bottom: var(--space-2);
+}
+
+.formSubtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    margin-bottom: var(--space-8);
+}
+
+/* Form Elements by ritik raj*/
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.labelRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgotLink {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.forgotLink:hover {
+    color: var(--color-accent-secondary);
+    text-decoration: underline;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.inputIcon {
+    position: absolute;
+    left: var(--space-4);
+    color: var(--color-text-muted);
+    pointer-events: none;
+}
+
+.input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+}
+
+.input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    background: var(--color-bg-secondary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.inputWithIcon {
+    padding-left: calc(var(--space-4) + 18px + var(--space-2));
+    padding-right: calc(var(--space-4) + 18px + var(--space-2));
+}
+
+.inputError {
+    border-color: #ef4444;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: var(--space-4);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.passwordToggle:hover {
+    color: var(--color-text-secondary);
+}
+
+.fieldError {
+    font-size: 0.75rem;
+    color: #ef4444;
+    font-weight: 500;
+    margin-top: var(--space-1);
+    animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CAPTCHA Section */
+.captchaSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.captchaBox {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+    user-select: none;
+}
+
+.captchaBox:hover {
+    background: var(--color-bg-glass);
+}
+
+.captchaBox.captchaError {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.captchaCheckbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-secondary);
+    transition: all 0.2s ease;
+}
+
+.captchaCheckbox.captchaChecked {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: white;
+}
+
+.captchaText {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.captchaLogo {
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    margin-left: var(--space-2);
+}
+
+.captchaErrorText {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.75rem;
+    color: #ef4444;
+    font-weight: 500;
+    animation: slideIn 0.2s ease;
+}
+
+/* Remember Me */
+.rememberMe {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    width: fit-content;
+}
+
+.rememberCheckbox {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+    cursor: pointer;
+    accent-color: var(--color-accent-primary);
+}
+
+.rememberText {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* Submit Button */
+.submitBtn {
+    width: 100%;
+    padding: var(--space-4);
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border: none;
+    border-radius: var(--radius-xl);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    margin-top: var(--space-4);
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error & Success Messages */
+.error {
+    padding: var(--space-3) var(--space-4);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-lg);
+    color: #ef4444;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+}
+
+.success {
+    padding: var(--space-3) var(--space-4);
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--radius-lg);
+    color: #22c55e;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+}
+
+/* Toggle Section */
+.toggle {
+    margin-top: var(--space-8);
+    text-align: center;
+}
+
+.toggleText {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.toggleButton {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.toggleButton:hover {
+    text-decoration: underline;
+    color: var(--color-accent-secondary);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.backLink:hover {
+    color: var(--color-text-primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .leftPanel {
+        padding: var(--space-8);
+    }
+
+    .welcomeTitle {
+        font-size: 1.75rem;
+    }
+
+    .welcomeSubtitle {
+        font-size: 1rem;
+    }
+
+    .trustBadge {
+        margin-top: var(--space-8);
+    }
+}

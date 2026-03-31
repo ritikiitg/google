@@ -1,0 +1,207 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    animation: fadeIn 0.2s ease;
+}
+
+.modal {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header h2 {
+    font-size: 1.25rem;
+}
+
+.closeButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.closeButton:hover {
+    background: var(--color-bg-glass);
+    color: var(--color-text-primary);
+}
+
+.content {
+    padding: var(--space-6);
+    overflow-y: auto;
+}
+/* <!-- coded by ritik raj --> */
+
+.row {
+    display: grid;
+    grid-template-columns: 140px repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.row:last-of-type {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.timelineHeader {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.timelineTitle {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.probability {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.metricCell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.metricBarWrapper {
+    flex: 1;
+    height: 8px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.metricBar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease;
+}
+
+.metricValue {
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: right;
+}
+
+.trend {
+    font-size: 0.75rem;
+}
+
+.trend.up {
+    color: var(--color-positive);
+}
+
+.trend.down {
+    color: var(--color-negative);
+}
+
+.trend.stable {
+    color: var(--color-text-muted);
+}
+
+.summarySection {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+}
+
+.summarySection h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-4);
+}
+
+.summaryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+}
+
+.summaryCard {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.summaryCard h4 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+}
+
+.summaryCard p {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-3);
+}
+
+.summaryDetails {
+    font-size: 0.8125rem;
+}
+
+.summaryDetails strong {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--color-text-muted);
+}
+
+.summaryDetails ul {
+    list-style: disc;
+    padding-left: var(--space-4);
+}
+
+.summaryDetails li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-1);
+}
